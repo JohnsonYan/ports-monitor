@@ -32,7 +32,7 @@ class NmapMongodbPlugin(NmapBackendPlugin):
             product = str(obj_NmapReport.product)
             product_version = str(obj_NmapReport.product_version)
             product_extrainfo = str(obj_NmapReport.product_extrainfo)
-            banner = str(obj_NmapReport.banner)
+            # banner = str(obj_NmapReport.banner)
             # scripts_results = binascii.b2a_hex(str(obj_NmapReport.scripts_results))
 
             if len(obj_NmapReport.scripts_results) > 0:                
@@ -43,7 +43,7 @@ class NmapMongodbPlugin(NmapBackendPlugin):
             self.dic_report = {'inserted': inserted, 'taskid': taskid, 'ip': address, 'port': port,
                                'service': service, 'state': state, 'protocol': protocol, 'product': product,
                                'product_version': product_version, 'product_extrainfo': product_extrainfo,
-                               'scripts_results': scripts_results, 'banner': banner}
+                               'scripts_results': scripts_results}
     
     def __init__(self, dbname=None, store=None, **kwargs):
         NmapBackendPlugin.__init__(self)

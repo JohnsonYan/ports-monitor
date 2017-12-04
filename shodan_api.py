@@ -4,8 +4,8 @@ import time
 
 
 class ShodanApi:
-    def __init__(self):
-        self._shodan_api_key = "i964p9KFNScCwGLovxm1V2rYIIpUsl8T"
+    def __init__(self, api):
+        self._shodan_api_key = api
         self._api = shodan.Shodan(self._shodan_api_key)
         self.status = {'No information available for that IP': '101',
                        'Invalid IP': '102',
@@ -34,7 +34,12 @@ class ShodanApi:
                     continue
                 self.info[key] = value
             for item in host['data']:
-                self.banner.append([item.get('port', 'n/a'), item.get('transport', 'n/a'), item.get('product', 'n/a')])
+                self.banner.append({'port': item.get('port', None),
+                                    'transport': item.get('transport', None),
+                                    'product': item.get('product', None),
+                                    'devicetype': item.get('devicetype', None),
+                                    'timestamp': item.get('timestamp', None),
+                                    'tags': item.get('tags', None)})
             self.info['banner'] = self.banner
             self.info['status'] = self.status['OK']
 
@@ -65,6 +70,6 @@ class ShodanApi:
 
 
 if __name__ == '__main__':
-    S = ShodanApi()
+    S = ShodanApi('8zFmb4ZwKI4kH39nE5eL7FHdGRydkM3g')
     S.search('173.247.244.12')
     print str(S.get_ports())

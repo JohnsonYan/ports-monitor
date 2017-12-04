@@ -11,7 +11,7 @@ from libnmap.plugins.backendpluginFactory import BackendPluginFactory
 
 # 重试次数 & 超时时间(s)
 retrycnt = 1
-timeout = 360
+timeout = 240
 
 # 数据库连接 & 全局扫描参数
 # 数据库配置直接改BackendPluginFactory.create()的参数,参数里除了plugin_name, dbname和store，剩下的其实都是MongoClient()的参数
