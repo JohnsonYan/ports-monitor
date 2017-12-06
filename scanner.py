@@ -1,5 +1,6 @@
 # encoding=utf-8
 import time
+import datetime
 import Queue
 import pymongo
 import shodan_api
@@ -59,6 +60,24 @@ class Scanner(object):
         except Exception as e:
             print e.message
 
+    def schedule(self):
+        """
+        定时任务
+        :return:
+        """
+        # time
+        start_time = 9
+        if datetime.datetime.now().hour == start_time:
+            self.shodan_scan()
+
 
 if __name__ == '__main__':
-    Scanner().shodan_scan()
+    print '[Running...]'
+    scan = Scanner()
+    while True:
+        try:
+            # 每小时检查一次是否可以开始任务
+            scan.schedule()
+            time.sleep(60*60)
+        except Exception as msg:
+            print msg

@@ -15,7 +15,7 @@ class NmapScanner(object):
         try:
             count = 0
             # 寻找没有status字段的，表示该IP未被nmap处理
-            ips = self.shodan_scan.find({'status': {'$exists': False}}).batch_size(2)
+            ips = self.shodan_scan.find({'status': {'$exists': False}}).batch_size(1)
             for ip in ips:
                 wyportmap_mongo.run_wyportmap(str(ip.get('ip')))
                 # status 200 表示已交由nmap扫描
