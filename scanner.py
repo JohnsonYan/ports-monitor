@@ -8,7 +8,7 @@ import shodan_api
 
 class Scanner(object):
     def __init__(self):
-        # shodan api
+        # shodan api,通过轮询使用，使每秒钟一条的请求速度限制降低
         self.keys = ['RNrOvCRgqFyLdmg0Jxtv8EfyIE2ZA4wi',
                      'i964p9KFNScCwGLovxm1V2rYIIpUsl8T',
                      'b8OSJfnRS7u65NZ6DHFKPnHYNhh4mqSf',
@@ -22,8 +22,6 @@ class Scanner(object):
         # mongodb config
         self.ports = pymongo.MongoClient('localhost', 27017)['virustotal']['shodan_scan']
 
-    # DONE:1、编写代码处理request limit reached错误,遇到这种错误可以等待几分钟再请求,这个功能在shodan_api中完成了
-    # 2、编写代码处理Error: No information available for that IP. 将这类ip放入单独的列表，交给nmap处理
     def shodan_scan(self):
         try:
             # 获取到去重后的，由domain得来的IP
@@ -66,7 +64,7 @@ class Scanner(object):
         :return:
         """
         # time
-        start_time = 9
+        start_time = 3
         if datetime.datetime.now().hour == start_time:
             self.shodan_scan()
 

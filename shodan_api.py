@@ -21,6 +21,12 @@ class ShodanApi:
         self.banner = []
 
     def search(self, ip):
+        """
+        调用shodan的host(ip)接口，查询相关IP的详细信息
+        解析到info字典中，返回
+        :param ip: 一条IP地址
+        :return:
+        """
         # 每次调用search应清空保存着上一条结果的info,banner
         self._clear()
         try:

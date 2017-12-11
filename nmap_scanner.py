@@ -16,6 +16,10 @@ class NmapScanner(object):
         self.redis_queue = redis.Redis(host='localhost', port=6379, decode_responses=True, db=0)
 
     def nmap_scan(self):
+        """
+        调用wyportmap_mongo.py的nmap扫描程序
+        :return:
+        """
         try:
             ip = self.redis_queue.blpop('ip')
             wyportmap_mongo.run_wyportmap(str(ip[1]))

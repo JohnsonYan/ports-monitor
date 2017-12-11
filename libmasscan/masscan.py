@@ -24,6 +24,11 @@ class Masscan(object):
         self.doc = {}
 
     def store(self):
+        """
+        解析masscan的扫描结果(json文件),将结果存入mongodb
+        将IP放入redis队列，共nmap获取并扫描
+        :return:
+        """
         try:
             self.redis_queue.flushdb()
             iplist = set()
@@ -53,11 +58,16 @@ class Masscan(object):
             print '[error]%s'%msg
 
     def scan(self):
+        """
+        通过执行系统命令调用masscan扫描
+        :return:
+        """
         try:
             os.system("%s -p%s -iL %s -oJ %s --rate=%s --show open" % (self.path, self.ports,
                                                                        self.inputfile, self.outputfile,
                                                                        self.rate))
             print '[info]masscan done'
+            # 下面这条命令的作用时删除json格式最后一条记录的逗号，否则解析json文件时会出错
             os.system("tac %s |sed  '2s/,$//'|tac > %s" % (self.outputfile, self.results_filename))
             print '[info]output masscan results'
         except Exception as msg:

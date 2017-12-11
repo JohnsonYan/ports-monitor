@@ -4,6 +4,11 @@ import pymongo
 
 
 def output():
+    """
+    从mongodb的shodan数据中取出shodan没有结果的数据(status:101)，输出到input.txt中
+    同时修改status->201，防止下次重复取出
+    :return:
+    """
     try:
         domain_ip_ports = pymongo.MongoClient('localhost', 27017)['virustotal']['domain-ip-ports']
         ips = domain_ip_ports.distinct('ip_str', {'status': '101'})

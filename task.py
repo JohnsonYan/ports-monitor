@@ -7,6 +7,10 @@ import libmasscan.output_masscan_ip as output_masscan_ip
 
 
 def task():
+    """
+    调度函数，shodan-ip -> input.txt -> masscan 扫描 input.txt
+    :return:
+    """
     print '[task Running...]'
     while True:
         try:
