@@ -22,7 +22,8 @@ timeout = 240
 
 #global_options = '-sT -P0 -sV -O --script=banner -p T:21-25,80-89,110,143,443,513,873,1080,1433,1521,1158,1900,2082,2083,2222,2601,2604,3128,3306-3308,3312,3311,3389,3690,4440,5432,5900,6082,6379,6379,7000-9099,9200,9418,11211,27017-27019,28017,50060,50070,50000,111,11211,2049'
 #global_options = '-P0 -sS -sV -O --script=banner --open -p23,80 '
-global_options = '-P0 -sS -sV -O --script=banner --open '    #默认端口就挺好的
+# global_options = '-P0 -sS -sV -O --script=banner --open '    #默认端口就挺好的
+global_options = '-P0 -sS -sV -O --osscan-limit --script=banner --open '
 
 #21,80,443,873,2601,2604,3128,4440,6082,6379,8000,8008,8080,8081,8090,8099,8088,8888,9000,9090,9200,11211,27017,28017
 #-p T:102,502,2404,20000,44818,47808,1911,789,9600,1962,20547,5007 
@@ -57,7 +58,7 @@ def do_nmap_scan(targets, options=global_options):
                     trycnt += 1
                     break
                 else:
-                    print 'running[%ss]:%s' % (runtime, nmap_proc.command)
+                    # print 'running[%ss]:%s' % (runtime, nmap_proc.command)
                     sleep(5)
                     runtime += 5
             if nmap_proc.is_successful():
