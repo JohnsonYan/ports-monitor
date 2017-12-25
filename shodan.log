@@ -1,0 +1,21 @@
+Fri, 22 Dec 2017 15:21:58 scanner.py[line:35] INFO START IP(from honeypot) scan
+Mon, 25 Dec 2017 09:02:06 scanner.py[line:35] INFO START IP(from honeypot) scan
+Mon, 25 Dec 2017 11:17:44 scanner.py[line:35] INFO START IP(from honeypot) scan
+Mon, 25 Dec 2017 11:30:40 scanner.py[line:73] INFO START ip(from domain) scan
+Mon, 25 Dec 2017 12:06:57 scanner.py[line:68] ERROR ERROR IP(from honeypot)--- connection closed
+Mon, 25 Dec 2017 12:19:35 scanner.py[line:74] INFO START ip(from domain) scan
+Mon, 25 Dec 2017 12:19:38 scanner.py[line:104] ERROR ERROR IP(from domain)--- 'NoneType' object has no attribute 'get'
+Mon, 25 Dec 2017 12:58:42 scanner.py[line:35] INFO START IP(from honeypot) scan
+Mon, 25 Dec 2017 12:58:50 scanner.py[line:68] ERROR ERROR IP(from honeypot)--- 'NoneType' object has no attribute 'get'
+Mon, 25 Dec 2017 12:58:59 scanner.py[line:74] INFO START ip(from domain) scan
+Mon, 25 Dec 2017 12:59:01 scanner.py[line:104] ERROR ERROR IP(from domain)--- 'NoneType' object has no attribute 'get'
+Mon, 25 Dec 2017 13:13:01 scanner.py[line:35] INFO START IP(from honeypot) scan
+Mon, 25 Dec 2017 13:13:02 scanner.py[line:69] ERROR ERROR IP(from honeypot)--- 'NoneType' object has no attribute 'get'
+Mon, 25 Dec 2017 13:13:57 scanner.py[line:35] INFO START IP(from honeypot) scan
+Mon, 25 Dec 2017 13:13:58 scanner.py[line:69] ERROR ERROR IP(from honeypot)--- 'NoneType' object has no attribute 'get'
+Mon, 25 Dec 2017 13:14:45 scanner.py[line:75] INFO START ip(from domain) scan
+Mon, 25 Dec 2017 13:14:49 scanner.py[line:105] ERROR ERROR IP(from domain)--- 'NoneType' object has no attribute 'get'
+Mon, 25 Dec 2017 13:17:23 scanner.py[line:35] INFO START IP(from honeypot) scan
+Mon, 25 Dec 2017 13:19:32 scanner.py[line:35] INFO START IP(from honeypot) scan
+Mon, 25 Dec 2017 15:21:31 scanner.py[line:35] INFO START IP(from honeypot) scan
+Mon, 25 Dec 2017 15:30:12 scanner.py[line:35] INFO START IP(from honeypot) scan

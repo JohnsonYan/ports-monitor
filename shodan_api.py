@@ -39,15 +39,19 @@ class ShodanApi:
                 if key == 'data':
                     continue
                 self.info[key] = value
-            for item in host['data']:
+            for item in host.get('data'):
                 self.banner.append({'port': item.get('port', None),
                                     'transport': item.get('transport', None),
                                     'product': item.get('product', None),
                                     'devicetype': item.get('devicetype', None),
                                     'timestamp': item.get('timestamp', None),
-                                    'tags': item.get('tags', None)})
+                                    'tags': item.get('tags', None),
+                                    'server': item.get('http', {}).get('server', None),
+                                    'module': item.get('_shodan', {}).get('module', None)})
+
             self.info['banner'] = self.banner
             self.info['status'] = self.status['OK']
+            self.info['timestamp'] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
 
             return self.info
         except shodan.APIError as e:
