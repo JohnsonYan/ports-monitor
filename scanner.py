@@ -40,12 +40,12 @@ class Scanner(object):
 
                 # 不想扫描已有结果的数据时
                 if self.ports.find({'ip_str': ip}).count() > 0:
-                    print '[debug]skip %s, because this ip has been scaned by shodan api'%ip
+                    # print '[debug]skip %s, because this ip has been scaned by shodan api'%ip
                     continue
 
                 # 如果发现当前扫描对象的status为201，说明已经由nmap处理，故不继续处理
                 if self.ports.find({'status': '201', 'ip_str': ip}).count() > 0:
-                    print '[debug]skip %s, because this ip has been scaned by nmap/masscan'%ip
+                    # print '[debug]skip %s, because this ip has been scaned by nmap/masscan'%ip
                     continue
 
                 api = self.api_queue.get()
@@ -77,12 +77,12 @@ class Scanner(object):
             for ip in ips:
                 # 不想扫描已有结果的数据时
                 if self.ports.find({'ip_str': ip}).count() > 0:
-                    print '[debug]skip %s, because this ip has been scaned by shodan api' % ip
+                    # print '[debug]skip %s, because this ip has been scaned by shodan api' % ip
                     continue
 
                 # 如果发现当前扫描对象的status为201，说明已经由nmap处理，故不继续处理
                 if self.ports.find({'status': '201', 'ip_str': ip}).count() > 0:
-                    print '[debug]skip %s, because this ip has been scaned by nmap/masscan' % ip
+                    # print '[debug]skip %s, because this ip has been scaned by nmap/masscan' % ip
                     continue
 
                 api = self.api_queue.get()
@@ -113,7 +113,7 @@ class Scanner(object):
         :return:
         """
         # time
-        start_time = 15
+        start_time = 11
         if datetime.datetime.now().hour == start_time:
             self.shodan_scan()
 
